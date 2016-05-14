@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping>
+	<class name="cn.xiedacon.bar.user.domain.UserLog" table="userlog">
+		<id name="id">
+			<generator class="native"></generator>
+		</id>
+		<property name="firstOperation"></property>
+		<property name="firstTime"></property>
+		<property name="lastOperation"></property>
+		<property name="lastTime"></property>
+
+		<!-- 用户记录与用户之间多对一关系（基于外键） -->
+		<many-to-one name="user" class="cn.xiedacon.bar.user.domain.User" column="uid" lazy="false" cascade="all"></many-to-one>
+		
+		<!-- 用户记录与首次操作人之间多对一关系 -->
+		<many-to-one name="firstOperator" class="cn.xiedacon.bar.user.domain.User" column="firstOperator" lazy="false"></many-to-one>
+		
+		<!-- 用户记录与最后操作人之间多对一关系 -->
+		<many-to-one name="lastOperator" class="cn.xiedacon.bar.user.domain.User" column="lastOperator" lazy="false"></many-to-one>
+		
+		<!-- 用户记录与用户操作记录之间一对多关系 -->
+		<set name="userOperationLogs" lazy="false" cascade="all">
+			<key column="userlogId"></key>
+			<one-to-many class="cn.xiedacon.bar.user.domain.UserOperationLog"/>
+		</set>
+	</class>
+</hibernate-mapping>

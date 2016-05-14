@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping>
+	<class name="cn.xiedacon.bar.position.domain.Position" table="position">
+		<id name="id" column="position_id">
+			<generator class="native"></generator>
+		</id>
+		<property name="name" column="position_name"></property>
+	</class>
+</hibernate-mapping>

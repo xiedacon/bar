@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping>
+	<class name="cn.xiedacon.bar.reply.domain.Reply" table="reply">
+		<id name="rid">
+			<generator class="native"></generator>
+		</id>
+		<property name="content"></property>
+		<property name="date"></property>
+		
+		<!-- 回复与用户的多对一关系 -->
+		<many-to-one name="owner" class="cn.xiedacon.bar.user.domain.User" lazy="false" column="uid"></many-to-one>
+		
+		<!-- 回复与楼层的多对一关系 -->
+		<many-to-one name="floor" class="cn.xiedacon.bar.floor.domain.Floor" lazy="false" column="fid"></many-to-one>
+	</class>
+</hibernate-mapping>

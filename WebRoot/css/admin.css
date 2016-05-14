@@ -1,0 +1,314 @@
+html{
+    background: #fff;
+}
+.body{
+    padding:20px 0 0 30px;
+}
+.head{
+    width: 100%;
+    min-height: 30%;
+    border-bottom: 1px #C0C0C0 solid;
+    box-sizing: border-box;
+    padding:20px 0 0 30px;
+}
+.head h1{
+    font-size: 20px;
+}
+h2{
+    font-size: 15px;
+    font-weight: bold;
+}
+.head h2{
+    padding:45px 0 0 10px;
+}
+.head .form-top{
+    padding:30px 0 0 0;
+}
+.head .form-bottom{
+    padding: 16px 0 16px 0;
+}
+.form-bottom .condition{
+    border:1px #D5D5D5 solid;
+    border-right-color: #EDEDED;
+    border-bottom-color: #EDEDED;
+    width: 150px;
+    height: 25px;
+}
+.form-bottom .select{
+    border:1px #D5D5D5 solid;
+    border-right-color: #EDEDED;
+    border-bottom-color: #EDEDED;
+    width: 100px;
+    height: 27px;
+    padding: 0 0 0 10px;
+}
+.form-bottom .operationTime{
+    margin:0 0 0 50px;
+    display: inline-block;
+}
+.form-bottom .operationTime-after{
+    margin: 0 2px 0 0;
+    border:1px #D5D5D5 solid;
+    border-right-color: #EDEDED;
+    border-bottom-color: #EDEDED;
+    width: 150px;
+    height: 25px;
+}
+.form-bottom .operationTime-before{
+    border:1px #D5D5D5 solid;
+    border-right-color: #EDEDED;
+    border-bottom-color: #EDEDED;
+    width: 150px;
+    height: 25px;
+}
+.form-bottom .button{
+    display: inline-block;
+    border:1px #247FFD solid;
+    background: #398BFC;
+    color: #fff;
+    line-height: 25px;
+    vertical-align: bottom;
+    text-align: center;
+    width: 50px;
+    height: 25px;
+}
+.form-bottom .searchAll{
+    display: inline-block;
+    line-height: 27px;
+    vertical-align: bottom;
+    text-align: center;
+    padding: 0 0 0 10px;
+}
+.head .terms{
+    padding: 0 0 20px 0;
+}
+.terms .introduction{
+    display: inline-block;
+    font-size: 14px;
+    color: #8B8B8B;
+    background: #FDFEEE;
+    border: 1px #F3ECD9 solid;
+    width: 650px;
+    height: 25px;
+    line-height: 25px;
+    overflow: hidden;
+    vertical-align: middle;
+    margin: 0 30px 0 0;
+}
+.introduction .important{
+    color: #4E6BCB;
+}
+.introduction .icomoon{
+    color: #FD821E;
+    padding: 0 7px 0 7px;
+}
+.terms .button{
+    display: inline-block;
+    color: #fff;
+    border: 1px #2C67B5 solid;
+    border-radius: 3px;
+    padding: 0 10px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    box-shadow: 0 0 0 100px #3F7AC6 inset;
+}
+.head .tab{
+    height: 31px;
+    border-bottom: 1px #F5F5F5 solid;
+    position: relative;
+    margin: 20px 0 0 -30px;
+}
+.tab .tab-buttons{
+    position: absolute;
+    left:30px;
+}
+.tab .tab-buttons .button-focus{
+    display: inline-block;
+    font-size: 18px;
+    color: #000;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px 0 10px;
+    border: 1px #F5F5F5 solid;
+    border-bottom: 1px #fff solid;
+    float: left;
+}
+.tab .tab-buttons .button-unfocus{
+    display: inline-block;
+    font-size: 18px;
+    color: #000;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 10px 0 10px;
+    background: #EDEDED;
+    border: 1px #F5F5F5 solid;
+    float: left;
+}
+.body .result{
+    padding: 0 0 20px 0;
+    font-size: 14px;
+}
+.result .result-count{
+    color: #FF6463;
+}
+.result .resultAll{
+    font-size: 14px;
+}
+.body .result-table{
+    width: 95%;
+    border: 1px #D3D3D3 solid;
+    box-sizing: border-box;
+    margin: 0 0 20px 0;
+}
+.result-table thead{
+    background: #F5F5F5;
+}
+.result-table td{
+    padding: 10px;
+    border: 1px #D3D3D3 solid;
+    text-align: center;
+    height: 20px;
+    line-height: 20px;
+}
+.result-table .button{
+    display: inline-block;
+    height: 25px;
+    padding: 0px 5px;
+    margin: 1px auto;
+    background: #398BFC;
+    color: #fff;
+    font-size: 15px;
+    line-height: 25px;
+}
+.result-table .username-icon{
+    color: #398BFC;
+    font-size: 16px;
+}
+.username-icon i{
+    color: #398BFC;
+    font-size: 16px;
+}
+.result-table .user{
+    text-align: left;
+}
+.user .user-icon{
+    width: 70px;
+    height: 70px;
+    border-radius: 70px;
+    overflow: hidden;
+    vertical-align: middle;
+    margin: 0 20px 0 20px;
+}
+.user .username{
+    font-size: 16px;
+}
+.result-table .table-foot .selectAll{
+    float: left;
+    color: #2d64b3;
+    font-size: 14px;
+    margin: 0 0 0 10px;
+    line-height: 40px;
+    height: 100%;
+}
+.result-table .table-foot .button{
+    display: block;
+    height: 26px;
+    padding: 0px 5px;
+    margin: 7px 0;
+    background: #398BFC;
+    color: #fff;
+    font-size: 15px;
+    line-height: 26px;
+    float: right;
+}
+.list:after {
+    display: block;
+    visibility: hidden;
+    content: "";
+    height: 0;
+    clear: both;
+}
+.list .list-li {
+    padding: 0 30px 0 0;
+}
+.list-li .subtitle i{
+    display: inline-block;
+    margin:  0 5px 0 5px;
+    color: #398BFC;
+    font-size: 16px;
+    font-family: "icomoon";
+}
+.list-li .subtitle{
+    display: block;
+    width: 150px;
+    height: 30px;
+    background: #F4F4F4;
+    line-height: 30px;
+}
+.list-li .listItem{
+    padding: 0 0 0 10px;
+}
+.listItem .listItem-li{
+    position: relative;
+}
+.listItem-li .adminUser{
+    color:#808080;
+    display: inline-block;
+    width: 100px;
+    height: 30px;
+    margin: 15px 0 0 0;
+    background:#F0F0F0;
+    font-size: 12px;
+    padding:  0 0 0 10px;
+    line-height: 30px;
+    box-sizing: border-box;
+}
+.listItem-li .delete{
+    position: absolute;
+    left: 90px;
+    top: 5px;
+    display: block;
+    width: 20px;
+    height: 20px;
+    line-height: 19px;
+    text-align: center;
+    border-radius: 20px;
+    border: 1px #fff solid;
+    box-sizing: border-box;
+    color: #4A82C9;
+    font-family: "icomoon";
+    box-shadow: 0 0 0 10px #F0F0F0 inset;
+}
+.listItem-li .new{
+    font-size: 12px;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    display: block;
+    width: 30px;
+    height: 16px;
+    background:#63C835;
+    text-align: center;
+    line-height: 15px;
+    color: #fff;
+}
+.listItem-li .new i{
+    position: absolute;
+    top: 16px;
+    left: 12px;
+    display: block;
+    width: 0;
+    height: 0;
+    border: 3px transparent solid;
+    border-top-color: #63C835;
+}
+.table-foot .page{
+	color: #398BFC;
+	font-size: 16px;
+	cursor: pointer;
+	padding: 0 5px;
+}
+.table-foot .now_page{
+	color: #000;
+}

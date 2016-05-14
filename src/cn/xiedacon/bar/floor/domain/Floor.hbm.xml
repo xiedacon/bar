@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping>
+	<class name="cn.xiedacon.bar.floor.domain.Floor" table="floor">
+		<id name="fid">
+			<generator class="native"></generator>
+		</id>
+		<property name="content"></property>
+		<property name="date"></property>
+		<property name="floorNum"></property>
+		
+		<!-- 楼层与用户的多对一关系 -->
+		<many-to-one name="owner" class="cn.xiedacon.bar.user.domain.User" column="uid" lazy="false" cascade="save-update"></many-to-one>
+		
+		<!-- 楼层与帖子的多对一关系 -->
+		<many-to-one name="post" cascade="save-update" class="cn.xiedacon.bar.post.domain.Post" column="pid" lazy="false"></many-to-one>
+	</class>
+</hibernate-mapping>

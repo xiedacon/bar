@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping>
+	<class name="cn.xiedacon.bar.post.domain.Post" table="post">
+		<id name="pid"></id>
+		<property name="title"></property>
+		<property name="content"></property>
+		<property name="num"></property>
+		<property name="ldate"></property>
+		<property name="status"></property>
+		<!-- 帖子与发帖人之间多对一关系 -->
+		<many-to-one name="owner" class="cn.xiedacon.bar.user.domain.User" column="ouid" lazy="false"></many-to-one>
+		
+		<!-- 帖子与最后回帖人之间多对一关系 -->
+		<many-to-one name="lastUser" class="cn.xiedacon.bar.user.domain.User" column="luid" lazy="false"></many-to-one>
+	</class>
+</hibernate-mapping>

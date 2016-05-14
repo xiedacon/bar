@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"			
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"			
+	xmlns:context="http://www.springframework.org/schema/context"	
+	xmlns:aop="http://www.springframework.org/schema/aop"		
+	xmlns:tx="http://www.springframework.org/schema/tx"			
+	xmlns:util="http://www.springframework.org/schema/util"			
+	xmlns:p="http://www.springframework.org/schema/p"		
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 					
+    					http://www.springframework.org/schema/beans/spring-beans-3.0.xsd	
+    					http://www.springframework.org/schema/context 						
+    					http://www.springframework.org/schema/context/spring-context-3.0.xsd	
+						http://www.springframework.org/schema/aop 							
+						http://www.springframework.org/schema/aop/spring-aop-3.0.xsd		
+						http://www.springframework.org/schema/tx 							
+						http://www.springframework.org/schema/tx/spring-tx-3.0.xsd					
+						http://www.springframework.org/schema/util							
+						http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+						
+	<bean name="replyServiceImpl" class="cn.xiedacon.bar.reply.service.impl.ReplyServiceImpl" scope="singleton">
+		<property name="replyDao" ref="replyDaoImpl"></property>
+	</bean>	
+	<bean name="floorServiceImpl" class="cn.xiedacon.bar.floor.service.impl.FloorServiceImpl" scope="singleton">
+		<property name="floorDao" ref="floorDaoImpl"></property>
+	</bean>			
+	<bean name="postServiceImpl" class="cn.xiedacon.bar.post.service.impl.PostServiceImpl" scope="singleton">
+		<property name="postDao" ref="postDaoImpl"></property>
+	</bean>
+	<bean name="userServiceImpl" class="cn.xiedacon.bar.user.service.impl.UserServiceImpl" scope="singleton">
+		<property name="userDao" ref="userDaoImpl"></property>
+	</bean>		
+	
+	<bean name="adminPostServiceImpl" class="cn.xiedacon.bar.post.service.impl.AdminPostServiceImpl" scope="singleton">
+		<property name="adminPostDao" ref="adminPostDaoImpl"></property>
+	</bean>
+	<bean name="adminUserServiceImpl" class="cn.xiedacon.bar.user.service.impl.AdminUserServiceImpl" scope="singleton">
+		<property name="adminUserDao" ref="adminUserDaoImpl"></property>
+		<property name="userDao" ref="userDaoImpl"></property>
+	</bean>
+</beans>

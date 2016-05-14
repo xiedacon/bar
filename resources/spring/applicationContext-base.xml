@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"			
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"			
+	xmlns:context="http://www.springframework.org/schema/context"	
+	xmlns:aop="http://www.springframework.org/schema/aop"		
+	xmlns:tx="http://www.springframework.org/schema/tx"			
+	xmlns:util="http://www.springframework.org/schema/util"			
+	xmlns:p="http://www.springframework.org/schema/p"		
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 					
+    					http://www.springframework.org/schema/beans/spring-beans-3.0.xsd	
+    					http://www.springframework.org/schema/context 						
+    					http://www.springframework.org/schema/context/spring-context-3.0.xsd	
+						http://www.springframework.org/schema/aop 							
+						http://www.springframework.org/schema/aop/spring-aop-3.0.xsd		
+						http://www.springframework.org/schema/tx 							
+						http://www.springframework.org/schema/tx/spring-tx-3.0.xsd					
+						http://www.springframework.org/schema/util							
+						http://www.springframework.org/schema/util/spring-util-3.0.xsd">		
+	<!-- 配置连接池 -->
+	<!-- 引入外部属性文件 -->
+	<context:property-placeholder location="classpath:jdbc.properties"/>
+	<!-- 配置c3p0连接池 -->
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="${jdbc.driver}"/>
+		<property name="jdbcUrl" value="${jdbc.url}"/>
+		<property name="user" value="${jdbc.user}"/>
+		<property name="password" value="${jdbc.password}"/>
+	</bean>
+	
+	<!-- hibernate相关信息 -->
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+		<!-- 注入连接池 -->
+		<property name="dataSource" ref="dataSource"/>
+		<!-- 配置hibernate相关信息 -->
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.show_sql">true</prop>
+				<prop key="hibernate.format_sql">true</prop>
+				<prop key="hibernate.connection.autocommit">false</prop>
+				<prop key="hibernate.hbm2ddl.auto">update</prop>
+			</props>
+		</property>
+		<!-- 配置hibernate的映射信息 -->
+		<property name="mappingResources">
+			<list>
+				<value>cn/xiedacon/bar/post/domain/Post.hbm.xml</value>
+				<value>cn/xiedacon/bar/user/domain/User.hbm.xml</value>
+				<value>cn/xiedacon/bar/floor/domain/Floor.hbm.xml</value>
+				<value>cn/xiedacon/bar/reply/domain/Reply.hbm.xml</value>
+				<value>cn/xiedacon/bar/position/domain/Position.hbm.xml</value>
+				<value>cn/xiedacon/bar/level/domain/Level.hbm.xml</value>
+				<value>cn/xiedacon/bar/privilege/domain/Privilege.hbm.xml</value>
+				<value>cn/xiedacon/bar/status/domain/Status.hbm.xml</value>
+				
+				<value>cn/xiedacon/bar/post/domain/PostLog.hbm.xml</value>
+				<value>cn/xiedacon/bar/post/domain/PostAppealLog.hbm.xml</value>
+				<value>cn/xiedacon/bar/post/domain/PostOperationLog.hbm.xml</value>
+				<value>cn/xiedacon/bar/user/domain/UserLog.hbm.xml</value>
+				<value>cn/xiedacon/bar/user/domain/UserOperationLog.hbm.xml</value>
+				<value>cn/xiedacon/bar/user/domain/AdminLog.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="positionManager" class="cn.xiedacon.bar.position.PositionManager" scope="singleton">
+		<property name="positionDao" ref="positionDaoImpl"></property>
+	</bean>
+	
+	<!-- 事务管理 -->
+	<!-- 配置事务管理器 -->
+	<bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+	<!-- 开始注解事务 -->
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+
+</beans>

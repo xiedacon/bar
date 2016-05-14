@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts> 
+	<constant name="struts.devMode" value="false" />
+	
+	<package name="bar" namespace="/" extends="struts-default">
+	
+		<default-action-ref name="index"></default-action-ref>
+		
+		<global-results>
+			<result name="msg">/WEB-INF/jsps/stage/msg.jsp</result>
+			<result name="index">/WEB-INF/jsps/stage/index.jsp</result>
+		</global-results>
+		
+		<action name="index" class="indexAction">
+		</action>
+
+		<action name="post_*" class="postActionImpl" method="{1}">
+			<result name="findByPage">/WEB-INF/jsps/stage/posts.jsp</result>
+			<result name="boutique">/WEB-INF/jsps/stage/boutique.jsp</result>
+			<result name="findByPidAndPage">/WEB-INF/jsps/stage/post.jsp</result>
+		</action>
+		
+		<action name="user_*" class="userActionImpl" method="{1}">
+			<result name="userList">/WEB-INF/jsps/backstage/user/userList.jsp</result>
+		</action>
+		
+		<action name="reply_*" class="replyActionImpl" method="{1}">
+		</action>
+		
+		<action name="floor_*" class="floorActionImpl" method="{1}">
+			<result name="createFloor" type="redirectAction">
+				<param name="actionName">post_findByPidAndPage</param>
+				<param name="post.pid">${post.pid}</param>
+			</result>
+		</action>
+	</package>
+	
+	<package name="admin" namespace="/admin" extends="struts-default">
+		<action name="index">
+			<result>/WEB-INF/jsps/backstage/admin.jsp</result>
+		</action>
+		
+		<action name="admin_*" class="adminActionImpl" method="{1}">
+			<result name="index" type="redirect">/index</result>
+			<result name="userList">/WEB-INF/jsps/backstage/user/userList.jsp</result>
+		</action>
+		
+		<action name="adminPost_*" class="adminPostActionImpl" method="{1}">
+			<result name="deletePost">/WEB-INF/jsps/backstage/post/deletePost.jsp</result>
+			<result name="postLog">/WEB-INF/jsps/backstage/post/postLog.jsp</result>
+			<result name="postAppeal">/WEB-INF/jsps/backstage/post/postAppeal.jsp</result>
+			<result name="index" type="redirect">/index</result>
+		</action>
+		
+		<action name="adminUser_*" class="adminUserActionImpl" method="{1}">
+			<result name="forbiddenList">/WEB-INF/jsps/backstage/user/forbiddenList.jsp</result>
+			<result name="blackList">/WEB-INF/jsps/backstage/user/blackList.jsp</result>
+			<result name="userAppeal">/WEB-INF/jsps/backstage/user/userAppeal.jsp</result>
+			<result name="userLog">/WEB-INF/jsps/backstage/user/userLog.jsp</result>
+			<result name="userList" type="redirect">/user_findAllUser</result>
+			<result name="adminManage">/WEB-INF/jsps/backstage/admin/adminManage.jsp</result>
+			<result name="adminLog">/WEB-INF/jsps/backstage/admin/adminLog.jsp</result>
+		</action>
+		
+		<action name="load_*">
+			<result>/WEB-INF/jsps/backstage/{1}.jsp</result>
+		</action>
+	</package>
+</struts>
+		

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping>
+	<class name="cn.xiedacon.bar.user.domain.User" table="user">
+		<id name="uid">
+			<generator class="native"></generator>
+		</id>
+		<property name="username"></property>
+		<property name="password"></property>
+		<property name="name"></property>
+		<property name="icon"></property>
+		<property name="email"></property>
+		<property name="deletePostNum" column="delete_post_num"></property>
+		<property name="postNum" column="post_num"></property>
+		<property name="floorNum" column="floor_num"></property>
+		<property name="boutiqueNum" column="boutique_num"></property>
+		<property name="registDate" column="regist_date"></property>
+		<property name="isAdmin" column="isAdmin"></property>
+		<property name="forbidden"></property>
+		
+		<!-- 用户与等级的多对一关系 -->
+		<many-to-one name="level" class="cn.xiedacon.bar.level.domain.Level" column="lid" lazy="false"></many-to-one>
+		
+		<!-- 用户与职位的多对一关系 -->
+		<many-to-one name="position" class="cn.xiedacon.bar.position.domain.Position" column="position" lazy="false"></many-to-one>
+	</class>
+</hibernate-mapping>
