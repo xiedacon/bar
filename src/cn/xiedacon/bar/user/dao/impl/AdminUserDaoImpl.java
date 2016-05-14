@@ -18,6 +18,10 @@ public class AdminUserDaoImpl extends HibernateDaoSupport implements AdminUserDa
 		this.getHibernateTemplate().save(userLog);
 	}
 
+<<<<<<< HEAD
+	@SuppressWarnings("unchecked")
+=======
+>>>>>>> origin/master
 	@Override
 	public int findTotalCountByLastOperation(String operation) {
 		String hql = "SELECT COUNT(*) FROM UserLog u WHERE u.lastOperation=?";
@@ -31,7 +35,11 @@ public class AdminUserDaoImpl extends HibernateDaoSupport implements AdminUserDa
 
 	@Override
 	public List<UserLog> findByLastOperationABeginALimt(String operation, int begin, int limit) {
+<<<<<<< HEAD
+		String hql = "FROM UserLog u WHERE u.lastOperation=? ORDER BY u.lastTime DESC";
+=======
 		String hql = "FROM UserLog u WHERE u.lastOperation=?";
+>>>>>>> origin/master
 		List<UserLog> list = this.getHibernateTemplate().execute(new PageHibernateCallback<UserLog>(hql, operation, begin, limit));
 		if(list==null){
 			return new ArrayList<UserLog>();
@@ -55,6 +63,10 @@ public class AdminUserDaoImpl extends HibernateDaoSupport implements AdminUserDa
 		this.getHibernateTemplate().update(userLog);
 	}
 
+<<<<<<< HEAD
+	@SuppressWarnings("unchecked")
+=======
+>>>>>>> origin/master
 	@Override
 	public int findTotalCountAll() {
 		String hql = "SELECT COUNT(*) FROM UserLog u";
@@ -68,7 +80,11 @@ public class AdminUserDaoImpl extends HibernateDaoSupport implements AdminUserDa
 
 	@Override
 	public List<UserLog> findByBeginAndLimt(int begin, int limit) {
+<<<<<<< HEAD
+		String hql = "FROM UserLog u ORDER BY u.lastTime DESC";
+=======
 		String hql = "FROM UserLog u";
+>>>>>>> origin/master
 		List<UserLog> list = this.getHibernateTemplate().execute(new PageHibernateCallback<UserLog>(hql, begin, limit));
 		if(list==null){
 			return new ArrayList<UserLog>();
@@ -90,7 +106,11 @@ public class AdminUserDaoImpl extends HibernateDaoSupport implements AdminUserDa
 
 	@Override
 	public List<AdminLog> findAdminLogByBeginAndLimt(int begin, int limit) {
+<<<<<<< HEAD
+		String hql = "FROM AdminLog a ORDER BY a.time DESC";
+=======
 		String hql = "FROM AdminLog a";
+>>>>>>> origin/master
 		List<AdminLog> list = this.getHibernateTemplate().execute(new PageHibernateCallback<AdminLog>(hql, begin, limit));
 		if(list==null){
 			return new ArrayList<AdminLog>();
@@ -99,6 +119,10 @@ public class AdminUserDaoImpl extends HibernateDaoSupport implements AdminUserDa
 		}
 	}
 
+<<<<<<< HEAD
+	@SuppressWarnings("unchecked")
+=======
+>>>>>>> origin/master
 	@Override
 	public int findAdminLogTotalCount() {
 		String hql = "SELECT COUNT(*) FROM AdminLog a";

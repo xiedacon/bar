@@ -28,7 +28,11 @@ public class CommonUtils {
 	 * @param clazz
 	 * @return
 	 */
+<<<<<<< HEAD
+	public static <T> T toBean(Map<?, ?> map, Class<T> clazz) {
+=======
 	public static <T> T toBean(Map map, Class<T> clazz) {
+>>>>>>> origin/master
 		try {
 			T been = clazz.newInstance();
 			ConvertUtils.register(new DateConverter(), Date.class);
@@ -48,6 +52,10 @@ public class CommonUtils {
 	 * @throws InvocationTargetException
 	 * @throws NoSuchMethodException
 	 */
+<<<<<<< HEAD
+	@SuppressWarnings("unchecked")
+=======
+>>>>>>> origin/master
 	public static <T> Map<String, Object> toMap(T been) throws IllegalAccessException, InvocationTargetException, NoSuchMethodException {
 		return BeanUtils.describe(been);
 	}

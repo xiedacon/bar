@@ -13,7 +13,11 @@ public class FloorDaoImpl extends HibernateDaoSupport implements FloorDao {
 
 	@Override
 	public List<Floor> findByLimitAndPid(Integer begin, Integer limit,String pid) {
+<<<<<<< HEAD
+		String hql = "SELECT f FROM Floor f JOIN f.post p WHERE p.pid=? ORDER BY p.ldate DESC";
+=======
 		String hql = "SELECT f FROM Floor f JOIN f.post p WHERE p.pid=?";
+>>>>>>> origin/master
 		List<Floor> list = this.getHibernateTemplate().execute(new PageHibernateCallback<Floor>(hql,new Object[]{pid}, begin, limit));
 		if(list==null){
 			return new ArrayList<Floor>();
@@ -22,6 +26,10 @@ public class FloorDaoImpl extends HibernateDaoSupport implements FloorDao {
 		}
 	}
 
+<<<<<<< HEAD
+	@SuppressWarnings("unchecked")
+=======
+>>>>>>> origin/master
 	@Override
 	public Integer findTotalCountByPid(String pid) {
 		String hql = "SELECT COUNT(f) FROM Floor f JOIN f.post p WHERE p.pid=?";

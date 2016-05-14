@@ -5,7 +5,10 @@ import java.util.List;
 
 import cn.xiedacon.bar.level.dao.LevelDao;
 import cn.xiedacon.bar.level.domain.Level;
+<<<<<<< HEAD
+=======
 import cn.xiedacon.bar.position.domain.Position;
+>>>>>>> origin/master
 
 public class LevelManager {
 

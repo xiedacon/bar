@@ -13,13 +13,26 @@ import cn.xiedacon.bar.user.action.AdminUserAction;
 import cn.xiedacon.bar.user.domain.AdminLog;
 import cn.xiedacon.bar.user.domain.User;
 import cn.xiedacon.bar.user.domain.UserLog;
+<<<<<<< HEAD
+import cn.xiedacon.bar.user.service.AdminUserService;
+import cn.xiedacon.bar.user.service.UserService;
+import cn.xiedacon.bar.util.FactoryUtils;
+=======
 import cn.xiedacon.bar.user.domain.UserOperationLog;
 import cn.xiedacon.bar.user.service.AdminUserService;
 import cn.xiedacon.bar.user.service.UserService;
+>>>>>>> origin/master
 import cn.xiedacon.bar.util.PageBean;
 
 public class AdminUserActionImpl extends ActionSupport implements AdminUserAction {
 
+<<<<<<< HEAD
+	//变量区
+	
+	private static final long serialVersionUID = 1L;
+	
+=======
+>>>>>>> origin/master
 	private PageBean<UserLog> pageBean;
 	private UserService userService;
 	private AdminUserService adminUserService;
@@ -30,6 +43,10 @@ public class AdminUserActionImpl extends ActionSupport implements AdminUserActio
 	private PositionManager positionManager;
 	private List<Position> positionList;
 	private PageBean<AdminLog> adminLogPageBean;
+<<<<<<< HEAD
+	private Integer page;
+=======
+>>>>>>> origin/master
 	public PageBean<AdminLog> getAdminLogPageBean() {
 		return adminLogPageBean;
 	}
@@ -66,7 +83,10 @@ public class AdminUserActionImpl extends ActionSupport implements AdminUserActio
 		this.adminUserService = adminUserService;
 	}
 
+<<<<<<< HEAD
+=======
 	private Integer page;
+>>>>>>> origin/master
 	public void setUserService(UserService userService) {
 		this.userService = userService;
 	}
@@ -75,6 +95,13 @@ public class AdminUserActionImpl extends ActionSupport implements AdminUserActio
 		this.page = page;
 	}
 
+<<<<<<< HEAD
+	////////////////////////////////////////////////////
+	
+	//私有方法区
+	
+=======
+>>>>>>> origin/master
 	private Integer getPage() {
 		if(page==null){
 			return 1;
@@ -91,6 +118,79 @@ public class AdminUserActionImpl extends ActionSupport implements AdminUserActio
 		}
 	}
 
+<<<<<<< HEAD
+	private Integer getUid(){
+		if(uid==null){
+			throw new RuntimeException("请求参数错误");
+		}
+		
+		return uid;
+	}
+	private User getUser(){
+		User user = userService.findByUid(getUid());
+		
+		if(user==null){
+			throw new RuntimeException("请求参数错误");
+		}
+		
+		return user;
+	}
+	
+	private Integer getId() {
+		if(id==null){
+			throw new RuntimeException("请求参数错误");
+		}
+		
+		return id;
+	}
+	
+	private String getUsername(){
+		if(username==null){
+			throw new RuntimeException("请求参数错误");
+		}
+		
+		return username;
+	}
+	
+	private User getUserByUsername(){
+		User user = userService.findByUsername(getUsername());
+		if(user==null){
+			throw new RuntimeException("请求参数错误");
+		}
+		
+		return user;
+	}
+	
+	private Position getPosition(){
+		Position position = positionManager.get(getId());
+		if(position==null){
+			throw new RuntimeException("请求参数错误");
+		}
+		
+		return position;
+	}
+	//////////////////////////////////////////////////////
+	
+	//公共方法区
+	
+	@Override
+	public String forbiddenUser() {
+		//准备相关参数
+		User admin = getAdmin();
+		User user = getUser();
+		if(admin.getUid().equals(user.getUid())){
+			throw new RuntimeException("不能封禁自己");
+		}
+		
+		Date date = new Date();
+		String operation = "forbidden";
+		user.setForbidden(true);
+		
+		//获取用户记录对象
+		UserLog userLog = FactoryUtils.getUserLog(user, admin, date, operation);
+		
+		//保存
+=======
 	@Override
 	public String forbiddenUser() {
 		if(uid==null){
@@ -122,6 +222,7 @@ public class AdminUserActionImpl extends ActionSupport implements AdminUserActio
 		userLog.setUser(user);
 		userLog.addUserOperationLog(userOperationLog);
 		
+>>>>>>> origin/master
 		adminUserService.saveUserLog(userLog);
 		return "userList";
 	}
@@ -140,12 +241,33 @@ public class AdminUserActionImpl extends ActionSupport implements AdminUserActio
 
 	@Override
 	public String findUnrecoverForbiddenLog() {
+<<<<<<< HEAD
+		pageBean  = adminUserService.findUserLogByLastOperationAndPage("forbidden",getPage());
+=======
 		pageBean  = adminUserService.findLogByLastOperationAndPage("forbidden",getPage());
+>>>>>>> origin/master
 		return "forbiddenList";
 	}
 
 	@Override
 	public String removeForbiddenLog() {
+<<<<<<< HEAD
+		//获取用户操作记录实体类
+		UserLog userLog = adminUserService.findUserLogByLastOperationAndId("forbidden", getId());
+		if(userLog==null){
+			throw new RuntimeException("请求参数错误");
+		}
+		
+		//准备相关参数
+		User user = userLog.getUser();
+		Date time = new Date();
+		User admin = getAdmin();
+		String operation = "removeForbidden";
+		user.setForbidden(false);
+		
+		//更新用户记录对象
+		userLog = FactoryUtils.updateUserLog(userLog, user, admin, time, operation);
+=======
 		if(id==null){
 			System.out.println("参数异常");
 			return NONE;
@@ -168,11 +290,17 @@ public class AdminUserActionImpl extends ActionSupport implements AdminUserActio
 		userLog.setLastOperator(userOperationLog.getOperator());
 		userLog.setLastTime(userOperationLog.getTime());
 		userLog.addUserOperationLog(userOperationLog);
+>>>>>>> origin/master
 		
 		adminUserService.updateUserLog(userLog);
 		return "userList";
 	}
 
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> origin/master
 	@Override
 	public String findUnrecoverForbiddenLogByUsername() {
 		// TODO Auto-generated method stub
@@ -248,6 +376,21 @@ public class AdminUserActionImpl extends ActionSupport implements AdminUserActio
 
 	@Override
 	public String addAdmin() {
+<<<<<<< HEAD
+		//准备相关参数
+		User user = getUserByUsername();
+		User admin = getAdmin();
+		Position position = getPosition();
+		Date time = new Date();
+		user.setPosition(position);
+		user.setIsAdmin(true);
+		String operation = "添加小吧";
+		
+		//获取吧务操作记录对象
+		AdminLog adminLog = FactoryUtils.getAdminLog(user, admin, time, operation);
+		
+		//保存
+=======
 		if(id==null||username==null){
 			System.out.println("参数异常");
 			return NONE;
@@ -274,12 +417,23 @@ public class AdminUserActionImpl extends ActionSupport implements AdminUserActio
 		adminLog.setOperator(getAdmin());
 		adminLog.setTime(time);
 		
+>>>>>>> origin/master
 		adminUserService.saveAdminLog(adminLog);
 		return findAdminAll();
 	}
 
 	@Override
 	public String removeAdmin() {
+<<<<<<< HEAD
+		//准备相关参数
+		User user = getUser();
+		User admin = getAdmin();
+		Date time = new Date();
+		String operation = "移除小吧";
+		
+		//获取吧务操作记录对象
+		AdminLog adminLog = FactoryUtils.getAdminLog(user, admin, time, operation);
+=======
 		if(uid==null){
 			System.out.println("参数异常");
 			return NONE;
@@ -297,6 +451,7 @@ public class AdminUserActionImpl extends ActionSupport implements AdminUserActio
 		adminLog.setOperation("移除小吧");
 		adminLog.setOperator(getAdmin());
 		adminLog.setTime(time);
+>>>>>>> origin/master
 		
 		adminUserService.removeAdmin(adminLog);
 		return findAdminAll();

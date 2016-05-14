@@ -7,11 +7,18 @@ import org.apache.struts2.ServletActionContext;
 import cn.xiedacon.bar.post.action.AdminPostAction;
 import cn.xiedacon.bar.post.domain.Post;
 import cn.xiedacon.bar.post.domain.PostLog;
+<<<<<<< HEAD
+=======
 import cn.xiedacon.bar.post.domain.PostOperationLog;
+>>>>>>> origin/master
 import cn.xiedacon.bar.post.service.AdminPostService;
 import cn.xiedacon.bar.post.service.PostService;
 import cn.xiedacon.bar.user.domain.User;
 import cn.xiedacon.bar.user.service.UserService;
+<<<<<<< HEAD
+import cn.xiedacon.bar.util.FactoryUtils;
+=======
+>>>>>>> origin/master
 import cn.xiedacon.bar.util.PageBean;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -20,6 +27,11 @@ public class AdminPostActionImpl extends ActionSupport implements AdminPostActio
 
 	// 变量区
 
+<<<<<<< HEAD
+	private static final long serialVersionUID = 1L;
+	
+=======
+>>>>>>> origin/master
 	private AdminPostService adminPostService;
 	private PostService postService;
 	private UserService userService;
@@ -129,7 +141,11 @@ public class AdminPostActionImpl extends ActionSupport implements AdminPostActio
 
 	private Post getPost() {
 		Post post = postService.findByPid(getPid());
+<<<<<<< HEAD
+
+=======
 		
+>>>>>>> origin/master
 		if (post == null) {
 			throw new RuntimeException("请求参数异常");
 		}
@@ -161,6 +177,16 @@ public class AdminPostActionImpl extends ActionSupport implements AdminPostActio
 		if (postLog == null) {
 			throw new RuntimeException("请求参数异常");
 		}
+<<<<<<< HEAD
+		// 准备相关参数
+		Date time = new Date();
+		User admin = getAdmin();
+		String operation = "recover";
+		Post post = postLog.getPost();
+		post.setStatus(1);
+
+		postLog = FactoryUtils.updatePostLog(postLog, admin, time, operation, post);
+=======
 
 		// 创建帖子单次操作记录对象
 		PostOperationLog operationLog = new PostOperationLog();
@@ -181,6 +207,7 @@ public class AdminPostActionImpl extends ActionSupport implements AdminPostActio
 		postLog.addPostOperationLog(operationLog);
 
 		postLog.getPost().setStatus(1);
+>>>>>>> origin/master
 
 		adminPostService.updatePostOperationLog(postLog);
 		return findUnRecoverDeleteLog();
@@ -236,6 +263,21 @@ public class AdminPostActionImpl extends ActionSupport implements AdminPostActio
 
 	@Override
 	public String deletePost() {
+<<<<<<< HEAD
+		// 准备相关参数
+		Post post = getPost();
+		User admin = getAdmin();
+		Date time = new Date();
+		String operation = "delete";
+		post.setStatus(2);
+		admin.setDeletePostNum(admin.getDeletePostNum() == null ? 1 : admin.getDeletePostNum() + 1);
+
+		// 创建帖子操作记录对象
+		PostLog postLog = FactoryUtils.getPostLog(post, admin, time, operation);
+
+		// 保存记录
+		adminPostService.savePostLog(postLog);
+=======
 		// 创建帖子操作记录对象
 		PostLog postLog = new PostLog();
 
@@ -265,6 +307,7 @@ public class AdminPostActionImpl extends ActionSupport implements AdminPostActio
 		// 保存记录
 		adminPostService.savePostLog(postLog);
 
+>>>>>>> origin/master
 		return "index";
 	}
 }

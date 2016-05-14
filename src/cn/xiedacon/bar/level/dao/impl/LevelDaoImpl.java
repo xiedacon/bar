@@ -10,6 +10,10 @@ import cn.xiedacon.bar.level.domain.Level;
 
 public class LevelDaoImpl extends HibernateDaoSupport implements LevelDao{
 
+<<<<<<< HEAD
+	@SuppressWarnings("unchecked")
+=======
+>>>>>>> origin/master
 	@Override
 	public List<Level> findAll() {
 		String hql = "FROM Level";

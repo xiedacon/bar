@@ -15,6 +15,10 @@ import cn.xiedacon.bar.post.service.PostService;
 import cn.xiedacon.bar.user.domain.User;
 import cn.xiedacon.bar.user.service.UserService;
 import cn.xiedacon.bar.util.CommonUtils;
+<<<<<<< HEAD
+import cn.xiedacon.bar.util.FactoryUtils;
+=======
+>>>>>>> origin/master
 import cn.xiedacon.bar.util.PageBean;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -23,6 +27,11 @@ public class PostActionImpl extends ActionSupport implements cn.xiedacon.bar.pos
 
 	// 变量区
 
+<<<<<<< HEAD
+	private static final long serialVersionUID = 1L;
+	
+=======
+>>>>>>> origin/master
 	private PostService postService;
 	private FloorService floorService;
 	private UserService userService;
@@ -103,7 +112,11 @@ public class PostActionImpl extends ActionSupport implements cn.xiedacon.bar.pos
 	private User getUser(){
 		User user = (User) ServletActionContext.getRequest().getSession().getAttribute("user");
 
+<<<<<<< HEAD
+		if (user == null || user.getForbidden() || user.getUid() == null) {
+=======
 		if (user == null || !user.isAdmin() || user.getUid() == null) {
+>>>>>>> origin/master
 			throw new RuntimeException("无权限请求！！！");
 		}
 
@@ -115,6 +128,17 @@ public class PostActionImpl extends ActionSupport implements cn.xiedacon.bar.pos
 
 		return user;
 	}
+<<<<<<< HEAD
+	
+	private void print(Object json){
+		ServletActionContext.getResponse().setCharacterEncoding("utf-8");
+		try {
+			ServletActionContext.getResponse().getWriter().print(json);
+		} catch (IOException e) {
+		}
+	}
+=======
+>>>>>>> origin/master
 
 	// //////////////////////////////////////////////
 
@@ -148,15 +172,24 @@ public class PostActionImpl extends ActionSupport implements cn.xiedacon.bar.pos
 
 	@Override
 	public String createPost() {
+<<<<<<< HEAD
+=======
 		//创建帖子对象
 		post = new Post();
 		
+>>>>>>> origin/master
 		//准备相关数据
 		String pid = CommonUtils.uuid();
 		Date date = new Date();
 		User user = getUser();
 		user.setPostNum(user.getPostNum() == null ? 1 : user.getPostNum() + 1);
 		String title = getTitle();
+<<<<<<< HEAD
+		String content = getEditorValue();
+		
+		//创建帖子
+		post = FactoryUtils.getPost(pid, user, date, title, content);
+=======
 		String editorValue = getEditorValue();
 		
 		// 设置参数
@@ -168,11 +201,18 @@ public class PostActionImpl extends ActionSupport implements cn.xiedacon.bar.pos
 		post.setNum(1);
 		post.setTitle(title);
 		post.setStatus(1);
+>>>>>>> origin/master
 		
 		// 保存帖子
 		postService.createPost(post);
 		
 		// 创建1楼
+<<<<<<< HEAD
+		Floor firstFloor = FactoryUtils.getFloor(post, user, date, content);
+		
+		// 保存1楼
+		floorService.createFloor(firstFloor);
+=======
 		Floor firstFloor = new Floor();
 		firstFloor.setContent(editorValue);
 		firstFloor.setDate(date);
@@ -183,12 +223,18 @@ public class PostActionImpl extends ActionSupport implements cn.xiedacon.bar.pos
 		// 保存1楼
 		floorService.createFloor(firstFloor);
 		
+>>>>>>> origin/master
 		return findByPidAndPage();
 	}
 
 	@Override
 	public void findDeletePosts() {
 		User user = getUser();
+<<<<<<< HEAD
+		List<Post> postList = postService.findByStatusAndOwner(2,user);
+		JSONObject json = JSONObject.fromObject(postList);
+		print(json);
+=======
 		List<Post> postList = postService.findPostsByStatusAndOwner(2,user);
 		JSONObject json = JSONObject.fromObject(postList);
 		ServletActionContext.getResponse().setCharacterEncoding("utf-8");
@@ -196,6 +242,7 @@ public class PostActionImpl extends ActionSupport implements cn.xiedacon.bar.pos
 			ServletActionContext.getResponse().getWriter().print(json);
 		} catch (IOException e) {
 		}
+>>>>>>> origin/master
 	}
 
 }
