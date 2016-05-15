@@ -10,10 +10,7 @@ import cn.xiedacon.bar.position.domain.Position;
 
 public class PositionDaoImpl extends HibernateDaoSupport implements PositionDao{
 
-<<<<<<< HEAD
 	@SuppressWarnings("unchecked")
-=======
->>>>>>> origin/master
 	public List<Position> findAll() {
 		String hql = "FROM Position";
 		List<Position> positionList = (List<Position>) this.getHibernateTemplate().find(hql);

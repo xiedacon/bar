@@ -1,16 +1,8 @@
 package cn.xiedacon.bar.post.domain;
 
 import java.util.Date;
-<<<<<<< HEAD
 
 import cn.xiedacon.bar.floor.domain.Floor;
-=======
-import java.util.Iterator;
-import java.util.Set;
-
-import cn.xiedacon.bar.floor.domain.Floor;
-import cn.xiedacon.bar.status.domain.Status;
->>>>>>> origin/master
 import cn.xiedacon.bar.user.domain.User;
 import cn.xiedacon.bar.util.PageBean;
 

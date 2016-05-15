@@ -11,10 +11,7 @@ import cn.xiedacon.bar.util.PageHibernateCallback;
 
 public class ReplyDaoImpl extends HibernateDaoSupport implements ReplyDao {
 
-<<<<<<< HEAD
 	@SuppressWarnings("unchecked")
-=======
->>>>>>> origin/master
 	@Override
 	public Integer findTotalCountByFid(Integer fid) {
 		String hql = "SELECT COUNT(r) FROM Reply r JOIN r.floor f WHERE f.fid=?";
@@ -28,11 +25,7 @@ public class ReplyDaoImpl extends HibernateDaoSupport implements ReplyDao {
 
 	@Override
 	public List<Reply> findByLimitAndFid(Integer begin, Integer limit, Integer fid) {
-<<<<<<< HEAD
 		String hql = "SELECT r FROM Reply r JOIN r.floor f WHERE f.fid=? ORDER BY r.date DESC";
-=======
-		String hql = "SELECT r FROM Reply r JOIN r.floor f WHERE f.fid=?";
->>>>>>> origin/master
 		List<Reply> list = this.getHibernateTemplate().execute(new PageHibernateCallback<Reply>(hql, new Object[] { fid }, begin, limit));
 		if (list == null) {
 			return new ArrayList<Reply>();

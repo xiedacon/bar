@@ -10,10 +10,7 @@ import cn.xiedacon.bar.post.domain.Post;
 import cn.xiedacon.bar.post.service.PostService;
 import cn.xiedacon.bar.user.domain.User;
 import cn.xiedacon.bar.user.service.UserService;
-<<<<<<< HEAD
 import cn.xiedacon.bar.util.FactoryUtils;
-=======
->>>>>>> origin/master
 
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -21,11 +18,8 @@ public class FloorActionImpl extends ActionSupport implements cn.xiedacon.bar.fl
 
 	// 变量区
 
-<<<<<<< HEAD
 	private static final long serialVersionUID = 1L;
 
-=======
->>>>>>> origin/master
 	private Post post;
 	private String editorValue;
 	private PostService postService;
@@ -61,7 +55,6 @@ public class FloorActionImpl extends ActionSupport implements cn.xiedacon.bar.fl
 	// 私有方法区
 
 	private User getUser() {
-<<<<<<< HEAD
 		User user = (User) ServletActionContext.getRequest().getSession().getAttribute("user");
 		if (user == null || user.getForbidden() || user.getUid() == null) {
 			throw new RuntimeException("没有相关权限");
@@ -87,28 +80,10 @@ public class FloorActionImpl extends ActionSupport implements cn.xiedacon.bar.fl
 	private Post getExistPost() {
 		if (post == null || post.getPid() == null) {
 			throw new RuntimeException("请求参数错误");
-=======
-		return (User) ServletActionContext.getRequest().getSession().getAttribute("user");
-	}
-
-	// //////////////////////////////////////////////////////
-
-	// 公共方法区
-
-	@Override
-	public String createFloor() {
-		User owner = getUser();
-
-		if (owner == null || owner.getUid() == null || owner.getForbidden() || post == null || post.getPid() == null) {
-			// 请求参数有误
-			// 用户未登录或被封禁
-			return "index";
->>>>>>> origin/master
 		}
 
 		post = postService.findByPid(post.getPid());
 
-<<<<<<< HEAD
 		if (post == null || post.getStatus() == 2) {// 以后可放到配置文件中!!!
 			throw new RuntimeException("请求参数错误");
 		}
@@ -129,45 +104,14 @@ public class FloorActionImpl extends ActionSupport implements cn.xiedacon.bar.fl
 		Date date = new Date();
 		Integer floorNum = post.getNum() + 1;
 		String content = getEditorValue();
-=======
-		if (post == null) {
-			// 帖子不存在
-			return "index";
-		}
-
-		owner = userService.findByUid(owner.getUid());
-
-		if (owner == null) {
-			// 用户不存在
-			return "index";
-		}
-
-		// 创建楼层对象
-		Floor floor = new Floor();
-
-		// 准备相关参数
-		Date date = new Date();
-		int floorNum = post.getNum() + 1;
->>>>>>> origin/master
 		owner.setFloorNum(owner.getFloorNum() == null ? 1 : owner.getFloorNum() + 1);
 		post.setLastUser(owner);
 		post.setNum(floorNum);
 
-<<<<<<< HEAD
 		// 创建楼层对象
 		Floor floor = FactoryUtils.getFloor(post, owner, date, content, floorNum);
 
 		// 保存楼层
-=======
-		// 设置数据
-		floor.setContent(editorValue);
-		floor.setDate(date);
-		floor.setFloorNum(floorNum);
-		floor.setOwner(owner);
-		floor.setPost(post);
-
-		//保存楼层
->>>>>>> origin/master
 		floorService.createFloor(floor);
 
 		return "createFloor";

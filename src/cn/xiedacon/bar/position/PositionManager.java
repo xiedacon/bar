@@ -1,10 +1,6 @@
 package cn.xiedacon.bar.position;
 
 import java.util.ArrayList;
-<<<<<<< HEAD
-=======
-import java.util.Collections;
->>>>>>> origin/master
 import java.util.HashMap;
 import java.util.List;
 

@@ -31,10 +31,7 @@ public class PageHibernateCallback<T> implements HibernateCallback<List<T>> {
 		this.begin = begin;
 		this.limit = limit;
 	}
-<<<<<<< HEAD
 	@SuppressWarnings("unchecked")
-=======
->>>>>>> origin/master
 	@Override
 	public List<T> doInHibernate(Session session) throws HibernateException {
 		//使用hql获得query

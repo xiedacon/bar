@@ -9,8 +9,8 @@ import cn.xiedacon.bar.post.domain.PostOperationLog;
 import cn.xiedacon.bar.reply.domain.Reply;
 import cn.xiedacon.bar.user.domain.AdminLog;
 import cn.xiedacon.bar.user.domain.User;
-import cn.xiedacon.bar.user.domain.UserLog;
-import cn.xiedacon.bar.user.domain.UserOperationLog;
+import cn.xiedacon.bar.userlog.domain.UserLog;
+import cn.xiedacon.bar.userlog.domain.UserOperationLog;
 
 public class FactoryUtils {
 

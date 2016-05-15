@@ -16,9 +16,5 @@ public interface PostService {
 	Post findByPid(String pid);
 	void createPost(Post post);
 	List<Post> findDeletePostsByOwner(User owner);
-<<<<<<< HEAD
 	List<Post> findByStatusAndOwner(Integer status, User user);
-=======
-	List<Post> findPostsByStatusAndOwner(Integer status, User user);
->>>>>>> origin/master
 }

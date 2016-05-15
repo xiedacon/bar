@@ -177,11 +177,8 @@ html{
             loadDiv("admin/adminPost_findAllLog");
         })
         $(".postAppeal").click(function(e){
-<<<<<<< HEAD
         	alert("暂未添加该功能");
         	return;
-=======
->>>>>>> origin/master
             loadDiv("admin/adminPost_findUnprocessAppealLogAll");
         })
         $(".userList").click(function(e){
@@ -191,7 +188,6 @@ html{
             loadDiv("admin/adminUser_findUnrecoverForbiddenLog");
         })
         $(".blackList").click(function(e){
-<<<<<<< HEAD
         	alert("暂未添加该功能");
         	return;
             loadDiv("admin/adminUser_findUnrecoverBlackListLog");
@@ -199,18 +195,12 @@ html{
         $(".userAppeal").click(function(e){
         	alert("暂未添加该功能");
         	return;
-=======
-            loadDiv("admin/adminUser_findUnrecoverBlackListLog");
-        })
-        $(".userAppeal").click(function(e){
->>>>>>> origin/master
             loadDiv("admin/adminUser_findUnprocessAppealLog");
         })
         $(".userLog").click(function(e){
             loadDiv("admin/adminUser_findAllLog");
         })
         $(".barInformation").click(function(e){
-<<<<<<< HEAD
         	alert("暂未添加该功能");
         	return;
             loadDiv("admin/load_barInformation");
@@ -223,14 +213,6 @@ html{
         $(".adminAttendance").click(function(e){
         	alert("暂未添加该功能");
         	return;
-=======
-            loadDiv("admin/load_barInformation");
-        })
-        $(".pictureRecycle").click(function(e){
-            loadDiv("admin/load_pictureRecycle");
-        })
-        $(".adminAttendance").click(function(e){
->>>>>>> origin/master
             loadDiv("admin/load_adminAttendance");
         })
         $(".adminManage").click(function(e){
@@ -240,7 +222,6 @@ html{
             loadDiv("admin/adminUser_findAdminLog");
         })
         $(".adminApproval").click(function(e){
-<<<<<<< HEAD
         	alert("暂未添加该功能");
         	return;
             loadDiv("admin/load_adminApproval");
@@ -253,14 +234,6 @@ html{
         $(".barSettings").click(function(e){
         	alert("暂未添加该功能");
         	return;
-=======
-            loadDiv("admin/load_adminApproval");
-        })
-        $(".generalAdminHost").click(function(e){
-            loadDiv("admin/load_generalAdminHost");
-        })
-        $(".barSettings").click(function(e){
->>>>>>> origin/master
             loadDiv("admin/load_barSettings");
         })
     })
@@ -271,11 +244,7 @@ html{
         <ul class="top_head fr">
 			<li class="login fl">
 				<div class="head_div">
-<<<<<<< HEAD
 					<a>欢迎 <s:property value="#session.user.name" /> </a>
-=======
-					<a>欢迎 <s:property value="#session.user.username" /> </a>
->>>>>>> origin/master
 				</div></li>
 			<li class="regist fl">
 				<div class="head_div">

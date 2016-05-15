@@ -69,11 +69,7 @@
 			<li class="list_button" onclick="alert('暂未加入该功能');">会员专属置顶</li>
 		</ul>
 	</div>
-<<<<<<< HEAD
 	<div class="backgroundImage" style="display: none;">
-=======
-	<div class="backgroundImage">
->>>>>>> origin/master
 		aaaaaaaaaaaaaaaaaa
 	</div>
 </div>

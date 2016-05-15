@@ -1,15 +1,8 @@
 package cn.xiedacon.bar.floor.domain;
 
 import java.util.Date;
-<<<<<<< HEAD
 
 import cn.xiedacon.bar.post.domain.Post;
-=======
-import java.util.Set;
-
-import cn.xiedacon.bar.post.domain.Post;
-import cn.xiedacon.bar.reply.domain.Reply;
->>>>>>> origin/master
 import cn.xiedacon.bar.user.domain.User;
 
 /**

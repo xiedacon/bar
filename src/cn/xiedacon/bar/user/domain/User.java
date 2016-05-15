@@ -39,7 +39,7 @@ public class User {
 
 	@Override
 	public String toString() {
-		return "User [uid=" + uid + ", username=" + username + ", password=" + password + ", name=" + name + ", icon=" + icon + ", email=" + email + ", level=" + level + ", deletePostNum=" + deletePostNum + ", postNum=" + postNum + ", floorNum=" + floorNum + ", boutiqueNum=" + boutiqueNum + ", registDate=" + registDate + ", isAdmin=" + isAdmin + ", position=" + position + "]";
+		return "User [uid=" + uid + ", username=" + username + ", password=" + password + ", name=" + name + ", icon=" + icon + ", email=" + email + ", level=" + level + ", deletePostNum=" + deletePostNum + ", postNum=" + postNum + ", floorNum=" + floorNum + ", boutiqueNum=" + boutiqueNum + ", registDate=" + registDate + ", isAdmin=" + isAdmin + ", position=" + position + ", forbidden=" + forbidden + "]";
 	}
 	private Integer uid;
 	private String username;

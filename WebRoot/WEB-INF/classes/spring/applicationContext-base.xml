@@ -50,11 +50,6 @@
 				<value>cn/xiedacon/bar/reply/domain/Reply.hbm.xml</value>
 				<value>cn/xiedacon/bar/position/domain/Position.hbm.xml</value>
 				<value>cn/xiedacon/bar/level/domain/Level.hbm.xml</value>
-<<<<<<< HEAD
-=======
-				<value>cn/xiedacon/bar/privilege/domain/Privilege.hbm.xml</value>
-				<value>cn/xiedacon/bar/status/domain/Status.hbm.xml</value>
->>>>>>> origin/master
 				
 				<value>cn/xiedacon/bar/post/domain/PostLog.hbm.xml</value>
 				<value>cn/xiedacon/bar/post/domain/PostAppealLog.hbm.xml</value>
@@ -66,7 +61,7 @@
 		</property>
 	</bean>
 	
-	<bean name="positionManager" class="cn.xiedacon.bar.position.PositionManager" scope="singleton">
+	<bean name="positionManager" class="cn.xiedacon.bar.position.PositionManager" scope="singleton" >
 		<property name="positionDao" ref="positionDaoImpl"></property>
 	</bean>
 	

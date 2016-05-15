@@ -11,8 +11,8 @@ public interface UserService {
 
 	User findByUid(Integer uid);
 	User findByUsername(String username);
-	void regist(User user);
-	PageBean<User> findAllByPage(Integer page);
-	List<User> findAdminAll();
-	void updateUser(User user);
+	void update(User user);
+	void save(User user);
+	PageBean<User> findByPage(Integer page);
+	List<User> findByPositionId(Integer id);
 }

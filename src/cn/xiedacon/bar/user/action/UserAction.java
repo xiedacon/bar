@@ -3,7 +3,6 @@ package cn.xiedacon.bar.user.action;
 
 public interface UserAction {
 
-<<<<<<< HEAD
 	/**
 	 * 登陆
 	 */
@@ -19,15 +18,15 @@ public interface UserAction {
 	/**
 	 * 退出
 	 */
-=======
-	void login();
-	void verifyUsernameAjax();
-	void regist();
->>>>>>> origin/master
 	void exit();
 	/**
 	 * 查看所有会员
 	 * @return
 	 */
 	String findAllUser();
+	/**
+	 * 按用户名搜索会员
+	 * @return
+	 */
+	String findUserByUsername();
 }
