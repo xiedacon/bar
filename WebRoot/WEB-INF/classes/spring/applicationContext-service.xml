@@ -30,11 +30,14 @@
 		<property name="userDao" ref="userDaoImpl"></property>
 	</bean>		
 	
-	<bean name="adminPostServiceImpl" class="cn.xiedacon.bar.post.service.impl.AdminPostServiceImpl" scope="singleton">
-		<property name="adminPostDao" ref="adminPostDaoImpl"></property>
+	<bean name="postLogServiceImpl" class="cn.xiedacon.bar.postLog.service.impl.PostLogServiceImpl" scope="singleton">
+		<property name="postLogDao" ref="postLogDaoImpl"></property>
 	</bean>
-	<bean name="adminUserServiceImpl" class="cn.xiedacon.bar.user.service.impl.AdminUserServiceImpl" scope="singleton">
-		<property name="adminUserDao" ref="adminUserDaoImpl"></property>
+	<bean name="userLogServiceImpl" class="cn.xiedacon.bar.userLog.service.impl.UserLogServiceImpl" scope="singleton">
+		<property name="userLogDao" ref="userLogDaoImpl"></property>
+	</bean>
+	<bean name="adminLogServiceImpl" class="cn.xiedacon.bar.adminLog.service.impl.AdminLogServiceImpl" scope="singleton">
+		<property name="adminLogDao" ref="adminLogDaoImpl"></property>
 		<property name="userDao" ref="userDaoImpl"></property>
 	</bean>
 </beans>

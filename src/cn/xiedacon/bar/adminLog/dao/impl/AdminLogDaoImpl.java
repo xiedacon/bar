@@ -6,7 +6,7 @@ import java.util.List;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 
 import cn.xiedacon.bar.adminLog.dao.AdminLogDao;
-import cn.xiedacon.bar.user.domain.AdminLog;
+import cn.xiedacon.bar.adminLog.domain.AdminLog;
 import cn.xiedacon.bar.user.domain.User;
 import cn.xiedacon.bar.util.PageHibernateCallback;
 

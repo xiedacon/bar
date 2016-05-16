@@ -1,12 +1,12 @@
-package cn.xiedacon.bar.userlog.service.impl;
+package cn.xiedacon.bar.userLog.service.impl;
 
 import java.util.ArrayList;
 
 import org.springframework.transaction.annotation.Transactional;
 
-import cn.xiedacon.bar.userlog.dao.UserLogDao;
-import cn.xiedacon.bar.userlog.domain.UserLog;
-import cn.xiedacon.bar.userlog.service.UserLogService;
+import cn.xiedacon.bar.userLog.dao.UserLogDao;
+import cn.xiedacon.bar.userLog.domain.UserLog;
+import cn.xiedacon.bar.userLog.service.UserLogService;
 import cn.xiedacon.bar.util.PageBean;
 
 @Transactional

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping>
+	<class name="cn.xiedacon.bar.postLog.domain.PostOperationLog" table="postoperationlog">
+		<id name="id">
+			<generator class="native"></generator>
+		</id>
+		<property name="operation"></property>
+		<property name="time"></property>
+		
+		<!-- 贴子操作记录与帖子记录之间多对一关系 -->
+		<many-to-one name="postLog" class="cn.xiedacon.bar.postLog.domain.PostLog" column="postlogId" lazy="false"></many-to-one>
+		
+		<!-- 帖子操作记录与操作人之间多对一关系 -->
+		<many-to-one name="operator" class="cn.xiedacon.bar.user.domain.User" column="operator" lazy="false" cascade="save-update"></many-to-one>
+		
+	</class>
+</hibernate-mapping>

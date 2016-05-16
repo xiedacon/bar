@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping>
+	<class name="cn.xiedacon.bar.postLog.domain.PostAppealLog" table="postlog">
+		<id name="id">
+			<generator class="native"></generator>
+		</id>
+		<property name="firstOperation"></property>
+		<property name="firstTime"></property>
+		<property name="lastOperation"></property>
+		<property name="lastTime"></property>
+		<property name="appealTime"></property>
+		<property name="appealProcess"></property>
+		<property name="appealContent"></property>
+		
+		<!-- 贴子申诉记录与帖子之间一对一关系（基于外键） -->
+		<many-to-one name="post" class="cn.xiedacon.bar.post.domain.Post" column="pid" lazy="false"></many-to-one>
+		
+		<!-- 帖子申诉记录与首次操作人之间多对一关系 -->
+		<many-to-one name="firstOperator" class="cn.xiedacon.bar.user.domain.User" column="firstOperator" lazy="false"></many-to-one>
+		
+		<!-- 帖子申诉记录与最后操作人之间多对一关系 -->
+		<many-to-one name="lastOperator" class="cn.xiedacon.bar.user.domain.User" column="lastOperator" lazy="false"></many-to-one>
+		
+		<!-- 帖子申诉记录与申诉人之间多对一关系 -->
+		<many-to-one name="appealUser" class="cn.xiedacon.bar.user.domain.User" column="appealUser" lazy="false"></many-to-one>
+		
+		<!-- 帖子申诉记录与帖子操作记录之间一对多关系 -->
+		<set name="postOperationLogs" lazy="false" cascade="all">
+			<key column="postlogId"></key>
+			<one-to-many class="cn.xiedacon.bar.postLog.domain.PostOperationLog"/>
+		</set>
+	</class>
+</hibernate-mapping>

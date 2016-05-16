@@ -1,12 +1,12 @@
-package cn.xiedacon.bar.userlog.dao.impl;
+package cn.xiedacon.bar.userLog.dao.impl;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 
-import cn.xiedacon.bar.userlog.dao.UserLogDao;
-import cn.xiedacon.bar.userlog.domain.UserLog;
+import cn.xiedacon.bar.userLog.dao.UserLogDao;
+import cn.xiedacon.bar.userLog.domain.UserLog;
 import cn.xiedacon.bar.util.PageHibernateCallback;
 
 public class UserLogDaoImpl extends HibernateDaoSupport implements UserLogDao {

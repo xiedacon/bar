@@ -4,7 +4,7 @@
     "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
     
 <hibernate-mapping>
-	<class name="cn.xiedacon.bar.user.domain.UserLog" table="userlog">
+	<class name="cn.xiedacon.bar.userLog.domain.UserLog" table="userlog">
 		<id name="id">
 			<generator class="native"></generator>
 		</id>
@@ -25,7 +25,7 @@
 		<!-- 用户记录与用户操作记录之间一对多关系 -->
 		<set name="userOperationLogs" lazy="false" cascade="all">
 			<key column="userlogId"></key>
-			<one-to-many class="cn.xiedacon.bar.user.domain.UserOperationLog"/>
+			<one-to-many class="cn.xiedacon.bar.userLog.domain.UserOperationLog"/>
 		</set>
 	</class>
 </hibernate-mapping>

@@ -36,10 +36,13 @@
 	<bean name="levelDaoImpl" class="cn.xiedacon.bar.level.dao.impl.LevelDaoImpl" scope="singleton">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-	<bean name="adminPostDaoImpl" class="cn.xiedacon.bar.post.dao.impl.AdminPostDaoImpl" scope="singleton">
+	<bean name="postLogDaoImpl" class="cn.xiedacon.bar.postLog.dao.impl.PostLogDaoImpl" scope="singleton">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
-	<bean name="adminUserDaoImpl" class="cn.xiedacon.bar.user.dao.impl.AdminUserDaoImpl" scope="singleton">
+	<bean name="adminLogDaoImpl" class="cn.xiedacon.bar.adminLog.dao.impl.AdminLogDaoImpl" scope="singleton">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	<bean name="userLogDaoImpl" class="cn.xiedacon.bar.userLog.dao.impl.UserLogDaoImpl" scope="singleton">
 		<property name="sessionFactory" ref="sessionFactory"></property>
 	</bean>
 </beans>

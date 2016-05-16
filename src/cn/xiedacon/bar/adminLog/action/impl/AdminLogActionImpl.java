@@ -6,10 +6,10 @@ import java.util.List;
 import org.apache.struts2.ServletActionContext;
 
 import cn.xiedacon.bar.adminLog.action.AdminLogAction;
+import cn.xiedacon.bar.adminLog.domain.AdminLog;
 import cn.xiedacon.bar.adminLog.service.AdminLogService;
 import cn.xiedacon.bar.position.PositionManager;
 import cn.xiedacon.bar.position.domain.Position;
-import cn.xiedacon.bar.user.domain.AdminLog;
 import cn.xiedacon.bar.user.domain.User;
 import cn.xiedacon.bar.user.service.UserService;
 import cn.xiedacon.bar.util.FactoryUtils;

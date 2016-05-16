@@ -3,9 +3,9 @@ package cn.xiedacon.bar.adminLog.service.impl;
 import java.util.ArrayList;
 
 import cn.xiedacon.bar.adminLog.dao.AdminLogDao;
+import cn.xiedacon.bar.adminLog.domain.AdminLog;
 import cn.xiedacon.bar.adminLog.service.AdminLogService;
 import cn.xiedacon.bar.user.dao.UserDao;
-import cn.xiedacon.bar.user.domain.AdminLog;
 import cn.xiedacon.bar.util.PageBean;
 
 public class AdminLogServiceImpl implements AdminLogService {

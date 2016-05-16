@@ -1,8 +1,8 @@
-package cn.xiedacon.bar.userlog.dao;
+package cn.xiedacon.bar.userLog.dao;
 
 import java.util.List;
 
-import cn.xiedacon.bar.userlog.domain.UserLog;
+import cn.xiedacon.bar.userLog.domain.UserLog;
 
 public interface UserLogDao {
 

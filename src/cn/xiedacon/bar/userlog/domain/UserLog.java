@@ -1,4 +1,5 @@
-package cn.xiedacon.bar.userlog.domain;
+package cn.xiedacon.bar.userLog.domain;
+
 
 import java.util.Date;
 import java.util.HashSet;

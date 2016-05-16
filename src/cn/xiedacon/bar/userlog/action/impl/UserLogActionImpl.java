@@ -1,4 +1,4 @@
-package cn.xiedacon.bar.userlog.action.impl;
+package cn.xiedacon.bar.userLog.action.impl;
 
 import java.util.Date;
 
@@ -8,9 +8,9 @@ import com.opensymphony.xwork2.ActionSupport;
 
 import cn.xiedacon.bar.user.domain.User;
 import cn.xiedacon.bar.user.service.UserService;
-import cn.xiedacon.bar.userlog.action.UserLogAction;
-import cn.xiedacon.bar.userlog.domain.UserLog;
-import cn.xiedacon.bar.userlog.service.UserLogService;
+import cn.xiedacon.bar.userLog.action.UserLogAction;
+import cn.xiedacon.bar.userLog.domain.UserLog;
+import cn.xiedacon.bar.userLog.service.UserLogService;
 import cn.xiedacon.bar.util.FactoryUtils;
 import cn.xiedacon.bar.util.PageBean;
 

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping>
+	<class name="cn.xiedacon.bar.adminLog.domain.AdminLog" table="adminlog">
+		<id name="id">
+			<generator class="native"></generator>
+		</id>
+		<property name="operation"></property>
+		<property name="time"></property>
+		
+		<!-- 吧务管理记录与吧务的多对一关系 -->
+		<many-to-one name="adminUser" class="cn.xiedacon.bar.user.domain.User" column="adminUser" lazy="false"></many-to-one>
+		
+		<!-- 吧务管理记录与操作人的多对一关系 -->
+		<many-to-one name="operator" class="cn.xiedacon.bar.user.domain.User" column="operator" lazy="false"></many-to-one>
+	</class>
+</hibernate-mapping>

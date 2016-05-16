@@ -25,6 +25,7 @@
 		
 		<action name="user_*" class="userActionImpl" method="{1}">
 			<result name="userList">/WEB-INF/jsps/backstage/user/userList.jsp</result>
+			<result name="userList" type="redirect">/user_findAllUser</result>
 		</action>
 		
 		<action name="reply_*" class="replyActionImpl" method="{1}">
@@ -61,7 +62,7 @@
 			<result name="index" type="redirect">/index</result>
 		</action>
 		
-		<action name="adminPost_*" class="adminPostActionImpl" method="{1}">
+		<action name="postLog_*" class="postLogActionImpl" method="{1}">
 			<result name="deletePost">/WEB-INF/jsps/backstage/post/deletePost.jsp</result>
 			<result name="postLog">/WEB-INF/jsps/backstage/post/postLog.jsp</result>
 			<result name="postAppeal">/WEB-INF/jsps/backstage/post/postAppeal.jsp</result>
@@ -69,15 +70,17 @@
 			<interceptor-ref name="privilegeStack"></interceptor-ref>
 		</action>
 		
-		<action name="adminUser_*" class="adminUserActionImpl" method="{1}">
+		<action name="userLog_*" class="userLogActionImpl" method="{1}">
 			<result name="forbiddenList">/WEB-INF/jsps/backstage/user/forbiddenList.jsp</result>
 			<result name="blackList">/WEB-INF/jsps/backstage/user/blackList.jsp</result>
 			<result name="userAppeal">/WEB-INF/jsps/backstage/user/userAppeal.jsp</result>
 			<result name="userLog">/WEB-INF/jsps/backstage/user/userLog.jsp</result>
-			<result name="userList" type="redirect">/user_findAllUser</result>
+			<interceptor-ref name="privilegeStack"></interceptor-ref>
+		</action>
+		
+		<action name="adminLog_*" class="amdinLogActionImpl" method="{1}">
 			<result name="adminManage">/WEB-INF/jsps/backstage/admin/adminManage.jsp</result>
 			<result name="adminLog">/WEB-INF/jsps/backstage/admin/adminLog.jsp</result>
-			<interceptor-ref name="privilegeStack"></interceptor-ref>
 		</action>
 		
 		<action name="load_*">

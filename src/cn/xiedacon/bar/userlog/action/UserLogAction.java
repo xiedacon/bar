@@ -1,4 +1,4 @@
-package cn.xiedacon.bar.userlog.action;
+package cn.xiedacon.bar.userLog.action;
 
 public interface UserLogAction {
 

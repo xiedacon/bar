@@ -1,6 +1,6 @@
 package cn.xiedacon.bar.adminLog.service;
 
-import cn.xiedacon.bar.user.domain.AdminLog;
+import cn.xiedacon.bar.adminLog.domain.AdminLog;
 import cn.xiedacon.bar.util.PageBean;
 
 public interface AdminLogService {

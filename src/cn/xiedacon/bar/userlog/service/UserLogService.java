@@ -1,7 +1,7 @@
-package cn.xiedacon.bar.userlog.service;
+package cn.xiedacon.bar.userLog.service;
 
 
-import cn.xiedacon.bar.userlog.domain.UserLog;
+import cn.xiedacon.bar.userLog.domain.UserLog;
 import cn.xiedacon.bar.util.PageBean;
 
 public interface UserLogService {

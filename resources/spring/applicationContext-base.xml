@@ -51,12 +51,12 @@
 				<value>cn/xiedacon/bar/position/domain/Position.hbm.xml</value>
 				<value>cn/xiedacon/bar/level/domain/Level.hbm.xml</value>
 				
-				<value>cn/xiedacon/bar/post/domain/PostLog.hbm.xml</value>
-				<value>cn/xiedacon/bar/post/domain/PostAppealLog.hbm.xml</value>
-				<value>cn/xiedacon/bar/post/domain/PostOperationLog.hbm.xml</value>
-				<value>cn/xiedacon/bar/user/domain/UserLog.hbm.xml</value>
-				<value>cn/xiedacon/bar/user/domain/UserOperationLog.hbm.xml</value>
-				<value>cn/xiedacon/bar/user/domain/AdminLog.hbm.xml</value>
+				<value>cn/xiedacon/bar/postLog/domain/PostLog.hbm.xml</value>
+				<value>cn/xiedacon/bar/postLog/domain/PostAppealLog.hbm.xml</value>
+				<value>cn/xiedacon/bar/postLog/domain/PostOperationLog.hbm.xml</value>
+				<value>cn/xiedacon/bar/userLog/domain/UserLog.hbm.xml</value>
+				<value>cn/xiedacon/bar/userLog/domain/UserOperationLog.hbm.xml</value>
+				<value>cn/xiedacon/bar/adminLog/domain/AdminLog.hbm.xml</value>
 			</list>
 		</property>
 	</bean>

@@ -40,14 +40,18 @@
 	
 	<bean name="adminActionImpl" class="cn.xiedacon.bar.admin.action.impl.AdminActionImpl" scope="prototype">
 	</bean>
-	<bean name="adminPostActionImpl" class="cn.xiedacon.bar.post.action.impl.AdminPostActionImpl" scope="prototype">
-		<property name="adminPostService" ref="adminPostServiceImpl"></property>
+	<bean name="postLogActionImpl" class="cn.xiedacon.bar.postLog.action.impl.PostLogActionImpl" scope="prototype">
+		<property name="userService" ref="userServiceImpl"></property>
 		<property name="postService" ref="postServiceImpl"></property>
-		<property name="userService" ref="userServiceImpl"></property>
+		<property name="postLogService" ref="postLogServiceImpl"></property>
 	</bean>
-	<bean name="adminUserActionImpl" class="cn.xiedacon.bar.user.action.impl.AdminUserActionImpl" scope="prototype">
+	<bean name="userLogActionImpl" class="cn.xiedacon.bar.userLog.action.impl.UserLogActionImpl" scope="prototype">
 		<property name="userService" ref="userServiceImpl"></property>
-		<property name="adminUserService" ref="adminUserServiceImpl"></property>
+		<property name="userLogService" ref="userLogServiceImpl"></property>
+	</bean>
+	<bean name="adminLogActionImpl" class="cn.xiedacon.bar.adminLog.action.impl.AdminLogActionImpl" scope="prototype">
+		<property name="userService" ref="userServiceImpl"></property>
 		<property name="positionManager" ref="positionManager"></property>
+		<property name="adminLogService" ref="adminLogServiceImpl"></property>
 	</bean>
 </beans>
